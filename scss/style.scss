@@ -1,0 +1,542 @@
+@import "nullstyle";
+/* style */
+//colors: 
+//font family: Merriweather
+
+html,
+body {
+    min-width: 320px;
+    height: 100%;
+    font-family: Merriweather;
+    background-color: #E9DED4;
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    background-color: #fff;
+    max-width: 1366px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 25px;
+}
+
+.container {
+    display:block;
+    justify-content: space-between;
+    max-width: 1222px; //335px in phone
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+    background-color: #E9DED4;
+    height: 700px;
+    //понеслась пляска с ведьмами
+
+    .city {
+        position: relative;
+        height: 700px;
+        display: flex;
+        overflow: hidden;
+
+        &-1 {
+            position: absolute;
+            z-index: 1;
+            bottom: 55px;
+            right: 0;
+            display: block;
+            animation: city-fallin 0.8s ease-in 1.2s both;
+            outline: 10px solid #fff;
+            border-top-left-radius: 120px;
+            border-top-right-radius: 120px;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        &-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 4;
+            pointer-events: none;
+            min-width: 812px;
+            width: 100%;
+        }
+    }
+
+    &__filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 5;
+        mix-blend-mode: color-burn;
+        pointer-events: none;
+    }
+
+    &__circle {
+        border-radius: 50%;
+        width: 634px;
+        height: 634px;
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: -400px;
+        animation: circle-move 1.2s ease-out 1s both, circle-rotate 40s linear infinite;
+    }
+
+
+    &__unit {
+        width: 82.61px;
+        height: 122.22px;
+        position: absolute;
+        z-index: 6;
+        right: -10px;
+        bottom: 12px;
+        animation: unit-move 1s 0.2s both;
+        pointer-events: none;
+    }
+
+    &__horse {
+        width: 153.87px;
+        height: 243.99px;
+        transform: rotateZ(-10.59deg);
+        position: absolute;
+        z-index: 6;
+        right: 50px;
+        bottom: -150px;
+        animation: horse-move 1s 0.4s both;
+        pointer-events: none;
+    }
+
+    &__king {
+        width: 103.78px;
+        height: 255.89px;
+        position: absolute;
+        z-index: 3;
+        bottom: 50px;
+        right: 420px;
+        animation: king-move 1s 0.5s both;
+        pointer-events: none;
+    }
+
+    &__queen {
+        position: absolute;
+        z-index: 3;
+        width: 113.16px;
+        height: 252.44px;
+        right: 100px;
+        bottom: 60px;
+        animation: queen-move 1s 0.8s both;
+        pointer-events: none;
+    }
+
+
+    & .horse-step {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        pointer-events: all;
+    }
+
+    & .headline {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 6;
+
+        & .logo {
+            margin: 26px 0 0 72px;
+            font-family: "Golos Text";
+            font-size: 16.5px;
+            line-height: 17.98px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 245px;
+            color: #595653;
+            cursor: pointer;
+            pointer-events: visible;
+
+            &:hover .horse-step {
+                animation: horsestep 2s ease 1 alternate;
+            }
+
+        }
+
+        & p {
+            margin-left: 6.35px;
+        }
+
+        & svg {
+            margin-left: 1.73px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        & p,
+        svg,
+        path {
+            pointer-events: none;
+        }
+    }
+
+    &__redticker {
+        background-color: #F54932;
+        height: 60px;
+        overflow: hidden;
+        display: flex;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 24.2px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: #fff;
+        align-items: center;
+
+        &-1 {
+            animation: ticker1 30s linear -15s infinite;
+            display: flex;
+            align-items: center;
+        }
+
+        &-2 {
+            animation: ticker2 30s linear 0s infinite;
+            display: flex;
+            align-items: center;
+        }
+
+        & .dot {
+            display: block;
+            margin: 5px 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+    }
+
+    &__textbox {
+        animation: text-slide 1.2s 1.3s ease-out both;
+        max-width: 542px;
+        width: 100%;
+        height: 444px;
+        margin: 124px 0 0 72px;
+        position: relative;
+        z-index: 7;
+        color: #313131;
+
+        &-title {
+            display: block;
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 66px;
+            text-transform: uppercase;
+
+            & .center {
+                display: block;
+                text-align: center;
+            }
+
+            & .right {
+                display: block;
+                text-align: right;
+            }
+        }
+
+        &-info {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 23.4px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        &-buttons {
+            font-family: "Golos Text";
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-button {
+            animation: button-unlock 0s 2s both; //доступ после появления блока
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 66px;
+            transition: all 0.3s;
+            width: 263px;
+            height: 72px;
+            padding: 20px 49px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20.8px;
+            text-align: center;
+
+            &.black {
+                background-color: #1F1F1F;
+                color: #fff;
+
+                &:hover {
+                    background-color: #FBCE51;
+                    color: #1F1F1F;
+                }
+            }
+
+            &.white {
+                background-color: #00000000;
+                color: #000;
+                border: 2px solid #1F1F1F;
+
+                &:hover {
+                    background-color: #1F1F1F;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+.frame1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 140px auto 0 auto;
+
+    &__text {
+        width: 764px;
+        font-size: 36px;
+        line-height: 48.6px;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        &-red {
+            font-weight: 700;
+            color: #F54932;
+        }
+    }
+
+    &__image {
+        display: block;
+        border-radius: 50%;
+        width: 394px;
+        height: 250px;
+    }
+}
+
+.frame2 {
+    margin: 64px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    & .imgbox {
+        width: 474px;
+        height: 527px;
+        display: flex;
+        position: relative;
+        background-color: #fff;
+
+        &__background {
+            display: block;
+
+            &-explos {
+                display: block;
+                position: absolute;
+                z-index: 1;
+                left: -27.5px;
+                top: -27.81px;
+            }
+        }
+
+
+        &__hand {
+            display: block;
+            width: 174.32px;
+            height: 234.9px;
+            position: absolute;
+            z-index: 4;
+            right: 50.19px;
+            bottom: -67.65px;
+            animation: hand-move 1s steps(1, jump-end) infinite alternate;
+        }
+
+        &__knight {
+            display: block;
+            width: 87.64px;
+            height: 148.92px;
+            position: absolute;
+            z-index: 4;
+            left: 98.13px;
+            bottom: 11.68px;
+            animation: knight-move 1s steps(1, jump-end) infinite alternate;
+
+            &-explos {
+                display: block;
+                width: 213.6px;
+                height: 245.1px;
+                position: absolute;
+                z-index: 3;
+                left: -15.6px;
+                bottom: -13.8px;
+                animation: explos-show 1s steps(1, jump-end) infinite alternate;
+            }
+        }
+
+        &__human {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+
+            &-filter {
+                position: absolute;
+                left: 0;
+                top: 0;
+                mix-blend-mode: color-burn;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    }
+
+    & .infocard {
+        max-width: 704px;
+        width: 100%;
+
+        &__title {
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 48.6px;
+            color: #313131;
+            text-transform: uppercase;
+
+            & span {
+                font-weight: 700;
+                color: #F54932;
+            }
+        }
+
+        &__table {
+            margin: 60px 0 48px 0;
+            font-family: "Golos Text";
+            font-size: 20px;
+            line-height: 24px;
+            color: #313131;
+            border-collapse: collapse;
+
+            & th, td {
+                border-bottom: 2px solid black;
+                padding-bottom: 16px;
+                text-align: left;
+            }
+            & td {
+                padding: 16px 0;
+            }
+            & td:nth-child(5) {
+                border-bottom: 0;
+            }
+            
+            & .table {
+                &-left {
+                    width: 306px;
+                    opacity: 0.7;
+                    font-weight: 400;
+                    border-right: 2px solid black;
+                }
+
+                &-right {
+                    padding-left: 16px;
+                    width: 398px;
+                    font-weight: 600;
+                }
+                &-bot {
+                    border-bottom: 0
+                }
+            }
+        }
+        &__anchors {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            font-family: "Golos Text";
+            color: #3057A2;
+            position: relative;
+            & .underline {
+                display: inline;
+                position: absolute;
+                opacity: 0;
+                width:100%;
+                height: 2px;
+                background-color: #3057A2;
+                left: 0;
+                bottom: 2px;
+                transition: bottom 0.2s, opacity 0.2s;
+            }
+            &:hover {
+                .underline {
+                    opacity: 1;
+                    background-color: #3057A2;
+                    bottom: -2px;
+                }
+            }
+        }
+    }
+
+}
+
+.frame3 {
+    margin-top: 200px;
+    height: 1000px;
+    &__titlebox {
+        width: 806px;
+    }
+    &__title {
+        font-size: 54px;
+        font-weight: 400;
+        line-height: 64.8px;
+        color: #313131;
+        display: inline;
+        text-transform: uppercase;
+        &-anchor {
+            margin-left: 19px;
+            display: inline-block;
+            position: relative;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            font-family: "Golos Text";
+            width: 280px;
+            color: #3057A2;
+            .underline {
+                display: inline;
+                position: absolute;
+                opacity: 0;
+                width:100%;
+                height: 2px;
+                background-color: #3057A2;
+                left: 0;
+                bottom: 2px;
+                transition: bottom 0.2s, opacity 0.2s;
+            }
+            &:hover {
+                .underline {
+                    opacity: 1;
+                    background-color: #3057A2;
+                    bottom: -2px;
+                }
+            }
+        }
+    }
+}
+
+
+//put some soul to the things
+@import "animations";
